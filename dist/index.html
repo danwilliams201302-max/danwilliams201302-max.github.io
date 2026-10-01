@@ -26,6 +26,9 @@
       --radius: 22px;
       --truck-photo: url("https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1400&q=80");
       --depot-photo: url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80");
+      --warehouse-photo: url("https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80");
+      --records-photo: url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80");
+      --road-photo: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
     }
 
     * { box-sizing: border-box; }
@@ -353,6 +356,66 @@
       gap: 18px;
     }
 
+    .visual-proof {
+      padding-top: 24px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .image-card {
+      position: relative;
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #111;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+
+    .image-card.tall { min-height: 420px; }
+    .image-card.yard { background: linear-gradient(180deg, transparent, rgba(7,11,18,.86)), var(--depot-photo) center / cover; }
+    .image-card.warehouse { background: linear-gradient(180deg, transparent, rgba(7,11,18,.88)), var(--warehouse-photo) center / cover; }
+    .image-card.records { background: linear-gradient(180deg, transparent, rgba(7,11,18,.9)), var(--records-photo) center / cover; }
+
+    .image-card div {
+      width: 100%;
+      padding: 22px;
+      background: linear-gradient(180deg, transparent, rgba(7,11,18,.72));
+    }
+
+    .image-card b {
+      display: block;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+
+    .image-card span {
+      display: block;
+      color: var(--muted);
+      margin-top: 7px;
+      font-size: .94rem;
+    }
+
+    .card-visual {
+      height: 138px;
+      margin: -24px -24px 22px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(7,11,18,.05), rgba(7,11,18,.74)), var(--truck-photo) center / cover;
+    }
+
+    .card-visual.records { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--records-photo); }
+    .card-visual.warehouse { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--warehouse-photo); }
+    .card-visual.depot { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--depot-photo); }
+
     .depot-strip {
       margin: 34px 0 0;
       min-height: 260px;
@@ -476,6 +539,31 @@
       min-height: 100%;
     }
 
+    .checklist-photo {
+      min-height: 220px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.70)),
+        var(--road-photo) center / cover;
+      margin: -8px -8px 26px;
+      border: 1px solid rgba(255,255,255,.14);
+      display: flex;
+      align-items: end;
+      padding: 18px;
+    }
+
+    .checklist-photo span {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #d7fff8;
+      font-size: .84rem;
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
     .checklist h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
     .checks {
       margin: 28px 0;
@@ -564,6 +652,8 @@
       .section-head { display: block; }
       .section-head p { margin-top: 16px; }
       .transport-visual { min-height: 560px; }
+      .image-grid { grid-template-columns: 1fr; }
+      .image-card, .image-card.tall { min-height: 300px; }
     }
 
     @media (max-width: 560px) {
@@ -637,12 +727,29 @@
 
     <section id="services">
       <div class="wrap">
+        <div class="section-head visual-proof">
+          <h2>Start with what operators recognise.</h2>
+          <p>The work is not abstract transformation. It is the yard, the traffic office, the records, the vehicle evidence and the point where a job becomes an invoice.</p>
+        </div>
+        <div class="image-grid">
+          <div class="image-card tall yard">
+            <div><b>Yard and planning control</b><span>Where late changes, handovers and vehicle evidence either stay visible or disappear.</span></div>
+          </div>
+          <div class="image-card warehouse">
+            <div><b>Operational flow</b><span>Orders, loads, updates and proof need one joined-up route through the business.</span></div>
+          </div>
+          <div class="image-card records">
+            <div><b>Records that stand up</b><span>Compliance confidence starts with evidence that can be found quickly and trusted.</span></div>
+          </div>
+        </div>
+
         <div class="section-head">
           <h2>Three practical ways to get control back.</h2>
           <p>No theatre. No supplier kickbacks. The work starts with how the operation actually runs: orders, planning, drivers, vehicles, evidence, invoices and management reporting.</p>
         </div>
         <div class="cards">
           <article class="card">
+            <div class="card-visual records" role="img" aria-label="Transport records and admin paperwork"></div>
             <div class="price">&pound;295 fixed fee</div>
             <h3>Transport Admin Waste Review</h3>
             <p>A focused review of where duplicated admin, manual updates and weak handovers are costing time.</p>
@@ -653,6 +760,7 @@
             </ul>
           </article>
           <article class="card featured">
+            <div class="card-visual depot" role="img" aria-label="Depot operation and vehicle movement"></div>
             <div class="price">From &pound;495</div>
             <h3>Operator Compliance & Admin Health Check</h3>
             <p>A red, amber and green review of the records and routines that support operator licence confidence.</p>
@@ -663,6 +771,7 @@
             </ul>
           </article>
           <article class="card">
+            <div class="card-visual warehouse" role="img" aria-label="Warehouse and logistics process"></div>
             <div class="price">From &pound;750</div>
             <h3>Process, Systems & AI Readiness Review</h3>
             <p>A practical roadmap for joining up orders, planning, telematics, driver records and reporting.</p>
@@ -708,6 +817,9 @@
     <section id="checklist">
       <div class="wrap about-grid">
         <div class="checklist">
+          <div class="checklist-photo" role="img" aria-label="Road transport operation">
+            <span>Free operator scorecard</span>
+          </div>
           <div class="eyebrow"><span class="pulse"></span> Free lead magnet</div>
           <h2>Transport Admin & Compliance Readiness Checklist</h2>
           <p class="plain">A simple scorecard covering the records and routines a small operator should be able to find without a panic search.</p>
