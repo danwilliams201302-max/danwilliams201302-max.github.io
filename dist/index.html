@@ -100,6 +100,38 @@
     nav a { text-decoration: none; }
     nav a:hover { color: var(--ink); }
 
+    .section-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .section-menu a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,11,18,.40);
+      color: #dbe8f6;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .section-menu a:hover {
+      border-color: rgba(20,241,201,.38);
+      color: var(--ink);
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -436,27 +468,32 @@
 
     .tab-shell {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 22px;
+      gap: 18px;
       margin-top: 30px;
     }
 
     .tab-shell input { position: absolute; opacity: 0; pointer-events: none; }
 
     .tab-labels {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
-      align-content: start;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.045);
     }
 
     .tab-labels label {
+      flex: 1 1 180px;
       cursor: pointer;
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 999px;
       padding: 18px;
       background: rgba(255,255,255,.045);
       color: var(--muted);
       font-weight: 800;
+      text-align: center;
       transition: border-color .2s ease, background .2s ease, color .2s ease;
     }
 
@@ -541,6 +578,42 @@
     }
 
     .feature-list b { display: block; color: var(--ink); margin-bottom: 3px; }
+
+    .visual-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .visual-tile {
+      min-height: 210px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)),
+        var(--data-photo) center / cover;
+      display: flex;
+      align-items: end;
+      padding: 18px;
+    }
+
+    .visual-tile:nth-child(2) { background-image: linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)), var(--ops-photo); }
+    .visual-tile:nth-child(3) { background-image: linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)), var(--records-photo); }
+
+    .visual-tile b {
+      display: block;
+      line-height: 1.18;
+      letter-spacing: -.03em;
+    }
+
+    .visual-tile span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
 
     section { padding: 82px 0; }
     .section-head {
@@ -866,6 +939,7 @@
       .section-head p { margin-top: 16px; }
       .transport-visual { min-height: 560px; }
       .image-grid { grid-template-columns: 1fr; }
+      .visual-band { grid-template-columns: 1fr; }
       .image-card, .image-card.tall { min-height: 300px; }
       .about-image { min-height: 340px; }
       .tab-panel { min-height: auto; }
@@ -893,7 +967,9 @@
       </a>
       <nav aria-label="Main navigation">
         <a href="#about">About DW</a>
-        <a href="#capabilities">Tech & Ops</a>
+        <a href="#tech">Tech</a>
+        <a href="#ops">Ops</a>
+        <a href="#data">Data</a>
         <a href="#services">Services</a>
         <a href="#checklist">Checklist</a>
         <a href="#contact">Contact</a>
@@ -906,11 +982,18 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow"><span class="pulse"></span> UK based transport support with full EU coverage</div>
-          <h1>Find the small leaks that cost transport operators money.</h1>
-          <p>DW Transport Consultancy helps operators spot the repeated admin, disconnected systems, weak handovers and safety risks that people often miss because they have become part of the routine.</p>
+          <h1>Spot the waste hiding in your transport operation.</h1>
+          <p>DW Transport Consultancy helps operators review the work nobody questions: repeated admin, disconnected systems, weak handovers, unclear evidence and the small daily misses that quietly cost time, money and control.</p>
           <div class="hero-actions">
             <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Request the checklist</a>
             <a class="button" href="#services">See the offers</a>
+          </div>
+          <div class="section-menu" aria-label="Main page sections">
+            <a href="#about">About DW</a>
+            <a href="#tech">Tech</a>
+            <a href="#ops">Ops</a>
+            <a href="#data">Data</a>
+            <a href="#services">Services</a>
           </div>
           <div class="coverage-badges" aria-label="Coverage">
             <span>UK based</span>
@@ -967,8 +1050,13 @@
     <section class="capabilities" id="capabilities">
       <div class="wrap">
         <div class="section-head">
-          <h2>Tech, ops and data that actually join up.</h2>
-          <p>The value is not in adding another system. It is in making the systems, people and evidence work together so managers can see what is really happening.</p>
+          <h2>Look at the operation through three lenses.</h2>
+          <p>Operators do not need buzzwords. They need clearer systems, safer workforce control and data that shows where the real waste sits.</p>
+        </div>
+        <div class="visual-band" aria-label="Transport consultancy focus areas">
+          <div class="visual-tile"><div><b>Tech that joins up</b><span>Tacho, dashcams, telematics, maintenance and reporting working from the same evidence.</span></div></div>
+          <div class="visual-tile"><div><b>Ops that protect people</b><span>Safer routines, clearer escalation and workforce management that protects the business.</span></div></div>
+          <div class="visual-tile"><div><b>Data that proves it</b><span>Figures, reports and records that show what happened, not what someone retyped later.</span></div></div>
         </div>
         <div class="tab-shell">
           <input type="radio" name="capability" id="tab-tech" checked>
@@ -980,7 +1068,7 @@
             <label for="tab-data">Data and savings</label>
           </div>
           <div class="tab-panels">
-            <article class="tab-panel tech-panel">
+            <article class="tab-panel tech-panel" id="tech">
               <div class="tab-visual">
                 <div class="visual-note"><b>Dashcams, tacho, telematics, maintenance and admin systems.</b><span>Make them speak to each other before asking people to bridge the gap manually.</span></div>
               </div>
@@ -995,7 +1083,7 @@
                 </ul>
               </div>
             </article>
-            <article class="tab-panel ops-panel-tab">
+            <article class="tab-panel ops-panel-tab" id="ops">
               <div class="tab-visual">
                 <div class="visual-note"><b>Safe workforce, protected business.</b><span>Good processes should protect drivers, managers, customers and the licence.</span></div>
               </div>
@@ -1010,7 +1098,7 @@
                 </ul>
               </div>
             </article>
-            <article class="tab-panel data-panel">
+            <article class="tab-panel data-panel" id="data">
               <div class="tab-visual">
                 <div class="visual-note"><b>The savings are often in the boring bits.</b><span>Repeated minutes, repeated checks and repeated work become real cost.</span></div>
               </div>
@@ -1174,5 +1262,23 @@
       <p>DW Transport Consultancy. UK based with full EU coverage. Guidance and checklists are general operational information, not legal advice or a formal compliance sign-off. Always check current requirements with DVSA, the Traffic Commissioner and gov.uk.</p>
     </div>
   </footer>
+  <script>
+    const sectionTabs = {
+      "#tech": "tab-tech",
+      "#ops": "tab-ops",
+      "#data": "tab-data"
+    };
+
+    function openSectionTab() {
+      const id = sectionTabs[window.location.hash];
+      if (!id) return;
+      const input = document.getElementById(id);
+      if (input) input.checked = true;
+      document.getElementById("capabilities")?.scrollIntoView({ block: "start" });
+    }
+
+    window.addEventListener("hashchange", openSectionTab);
+    openSectionTab();
+  </script>
 </body>
 </html>
