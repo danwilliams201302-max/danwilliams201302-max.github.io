@@ -781,6 +781,11 @@
     }
 
     .white .plain, .white p { color: #506074; }
+    .white .eyebrow {
+      background: #e8fff9;
+      color: #05745f;
+      border-color: #b7f4e8;
+    }
     .white .card {
       background: #fff;
       border-color: #e4e9f0;
@@ -890,6 +895,163 @@
       color: #dce7f6;
     }
 
+    .proof-section {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)),
+        #08101c;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .proof-card {
+      min-height: 290px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 26px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.18), rgba(7,11,18,.90)),
+        var(--records-photo) center / cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      box-shadow: 0 24px 70px rgba(0,0,0,.20);
+    }
+
+    .proof-card:nth-child(2) {
+      background-image:
+        linear-gradient(180deg, rgba(7,11,18,.12), rgba(7,11,18,.90)),
+        var(--ops-photo);
+    }
+
+    .proof-card:nth-child(3) {
+      background-image:
+        linear-gradient(180deg, rgba(7,11,18,.12), rgba(7,11,18,.90)),
+        var(--data-photo);
+    }
+
+    .proof-card span {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(20,241,201,.12);
+      border: 1px solid rgba(20,241,201,.28);
+      color: #b8fff2;
+      font-size: .8rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .proof-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      letter-spacing: -.035em;
+    }
+
+    .proof-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .calculator-card {
+      border: 1px solid #dce4ee;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 18px 55px rgba(16,24,39,.08);
+      padding: clamp(22px, 4vw, 34px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .calculator-card label {
+      font-weight: 800;
+      color: #172033;
+      margin-top: 4px;
+    }
+
+    .calculator-card input {
+      width: 100%;
+      border: 1px solid #ccd6e3;
+      border-radius: 16px;
+      min-height: 48px;
+      padding: 0 14px;
+      font: inherit;
+      color: #172033;
+      background: #f8fafc;
+    }
+
+    .calculator-card input:focus {
+      outline: 3px solid rgba(20,241,201,.26);
+      border-color: #11bda0;
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 8px 0 6px;
+    }
+
+    .calc-results div {
+      border-radius: 20px;
+      padding: 16px;
+      background: #07111f;
+      color: #fff;
+    }
+
+    .calc-results span {
+      display: block;
+      color: #aab6c8;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .calc-results strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      letter-spacing: -.045em;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    details {
+      border: 1px solid #e4e9f0;
+      border-radius: 20px;
+      background: #fff;
+      padding: 18px 20px;
+      box-shadow: 0 12px 36px rgba(16,24,39,.05);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: #101827;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: #506074;
+    }
+
     .cta {
       padding: 80px 0;
     }
@@ -933,6 +1095,7 @@
     @media (max-width: 920px) {
       nav { display: none; }
       .hero-grid, .split, .about-grid, .cta-box, .about-panel, .tab-shell, .tab-panel { grid-template-columns: 1fr; }
+      .calculator-grid, .proof-grid, .faq-grid { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .cards { grid-template-columns: 1fr; }
       .section-head { display: block; }
@@ -950,6 +1113,7 @@
       .wrap { width: min(100% - 28px, var(--max)); }
       h1 { font-size: 3.05rem; }
       .signal-grid, .checks { grid-template-columns: 1fr; }
+      .calc-results { grid-template-columns: 1fr; }
       .flow-row { grid-template-columns: 1fr; }
       .button { width: 100%; }
       .yard-photo { inset: 0 0 170px 0; }
@@ -971,7 +1135,9 @@
         <a href="#ops">Ops</a>
         <a href="#data">Data</a>
         <a href="#services">Services</a>
+        <a href="#calculator">Calculator</a>
         <a href="#checklist">Checklist</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -985,7 +1151,8 @@
           <h1>Spot the waste hiding in your transport operation.</h1>
           <p>DW Transport Consultancy helps operators review the work nobody questions: repeated admin, disconnected systems, weak handovers, unclear evidence and the small daily misses that quietly cost time, money and control.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Request the checklist</a>
+            <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=20-minute%20operations%20review%20request">Book a 20-minute review</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Request the checklist</a>
             <a class="button" href="#services">See the offers</a>
           </div>
           <div class="section-menu" aria-label="Main page sections">
@@ -994,6 +1161,7 @@
             <a href="#ops">Ops</a>
             <a href="#data">Data</a>
             <a href="#services">Services</a>
+            <a href="#calculator">Calculator</a>
           </div>
           <div class="coverage-badges" aria-label="Coverage">
             <span>UK based</span>
@@ -1207,6 +1375,61 @@
       </div>
     </section>
 
+    <section class="proof-section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Where the savings usually show up.</h2>
+          <p>Most operators already have the information somewhere. The issue is how often people have to chase it, rebuild it, retype it or explain why two reports disagree.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card">
+            <span>Repeated admin</span>
+            <h3>One job, too many updates</h3>
+            <p>Orders get entered, planned, amended, chased, recorded and invoiced across different tools. DW looks for the points where one reliable update could remove three manual ones.</p>
+          </article>
+          <article class="proof-card">
+            <span>Evidence gaps</span>
+            <h3>Hard to prove what happened</h3>
+            <p>Driver records, defects, camera evidence, vehicle activity and customer updates should support each other. Weak links cost time when there is a dispute, incident or audit question.</p>
+          </article>
+          <article class="proof-card">
+            <span>Disconnected systems</span>
+            <h3>People become the integration</h3>
+            <p>When telematics, tacho, maintenance, planning and finance do not speak, the traffic office fills the gap. That is where careful automation and cleaner reporting can pay back quickly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-section white" id="calculator">
+      <div class="wrap calculator-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Quick admin waste estimate</div>
+          <h2>Put a rough cost against repeated transport admin.</h2>
+          <p class="plain">This is a simple sense-check, not a finance model. Change the numbers and see what repeated office tasks could be costing before anyone has even looked at disputes, missed evidence or delayed invoicing.</p>
+        </div>
+        <div class="calculator-card" aria-label="Admin waste calculator">
+          <label for="vehicles">Vehicles in operation</label>
+          <input id="vehicles" type="number" min="1" value="12">
+
+          <label for="minutes">Repeated admin minutes per vehicle per day</label>
+          <input id="minutes" type="number" min="1" value="12">
+
+          <label for="rate">Loaded hourly admin cost</label>
+          <input id="rate" type="number" min="1" value="18">
+
+          <label for="days">Working days per month</label>
+          <input id="days" type="number" min="1" value="22">
+
+          <div class="calc-results">
+            <div><span>Estimated monthly cost</span><strong id="monthlyCost">&pound;950</strong></div>
+            <div><span>Estimated annual cost</span><strong id="annualCost">&pound;11,405</strong></div>
+          </div>
+          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Admin%20waste%20calculator%20review">Review this with DW</a>
+        </div>
+      </div>
+    </section>
+
     <section id="checklist">
       <div class="wrap about-grid">
         <div class="checklist">
@@ -1226,7 +1449,7 @@
             <span>Reporting visibility</span>
             <span>Improvement actions</span>
           </div>
-          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Email me the checklist</a>
+          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Email me the checklist</a>
         </div>
         <div class="card">
           <h2>What it helps you question</h2>
@@ -1242,11 +1465,46 @@
       </div>
     </section>
 
+    <section class="white" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Questions operators normally ask first.</h2>
+          <p>Short answers before anyone books time in the diary.</p>
+        </div>
+        <div class="faq-grid">
+          <details open>
+            <summary>Do you work remotely or on site?</summary>
+            <p>Both. Some admin, systems and reporting reviews can start remotely. Yard, workforce and operational rhythm work is usually stronger with at least some time on site.</p>
+          </details>
+          <details>
+            <summary>Is this a formal compliance sign-off?</summary>
+            <p>No. DW provides operational review, admin checks and practical improvement actions. Formal legal advice or statutory compliance sign-off should sit with the correct appointed professionals.</p>
+          </details>
+          <details>
+            <summary>What systems can you look at?</summary>
+            <p>Planning tools, spreadsheets, telematics, dashcams, tacho analysis, maintenance records, driver records, reporting packs and the handovers between them.</p>
+          </details>
+          <details>
+            <summary>Do you cover outside the UK?</summary>
+            <p>Yes. DW is UK based and can support operations with full EU coverage, especially where UK operators need stronger visibility across cross-border work.</p>
+          </details>
+          <details>
+            <summary>What happens on the first call?</summary>
+            <p>A short discussion about the issue, the systems involved, where time is being lost and whether a fixed-scope review is the right next step.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="cta" id="contact">
       <div class="wrap cta-box">
         <div>
-          <h2>Got a spreadsheet that everyone relies on and nobody trusts?</h2>
+          <h2>Got a spreadsheet, report or process that everyone relies on and nobody trusts?</h2>
           <p class="plain">Send a quick email with the issue: admin time, evidence gaps, reporting, systems, telematics or AI-ready process improvement. If it is not a good fit, you will get a straight answer.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=20-minute%20operations%20review%20request">Book a 20-minute review</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Request the checklist</a>
+          </div>
         </div>
         <div class="contact-card">
           <span>Contact</span>
@@ -1279,6 +1537,21 @@
 
     window.addEventListener("hashchange", openSectionTab);
     openSectionTab();
+
+    const calcInputs = ["vehicles", "minutes", "rate", "days"].map((id) => document.getElementById(id));
+    const monthlyCost = document.getElementById("monthlyCost");
+    const annualCost = document.getElementById("annualCost");
+    const money = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
+
+    function updateAdminWaste() {
+      const [vehicles, minutes, rate, days] = calcInputs.map((input) => Math.max(Number(input?.value || 0), 0));
+      const monthly = vehicles * (minutes / 60) * rate * days;
+      if (monthlyCost) monthlyCost.textContent = money.format(monthly);
+      if (annualCost) annualCost.textContent = money.format(monthly * 12);
+    }
+
+    calcInputs.forEach((input) => input?.addEventListener("input", updateAdminWaste));
+    updateAdminWaste();
   </script>
 </body>
 </html>
