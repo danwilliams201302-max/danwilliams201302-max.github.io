@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DW Transport Consultancy | Transport admin, compliance and AI-ready operations</title>
+  <meta name="description" content="Modern transport operations consultancy for small hauliers: admin waste reviews, compliance record checks, systems roadmaps and sensible AI-enabled reporting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M12 39h34l6-8-6-8H12v16z' fill='%2314f1c9'/%3E%3Cpath d='M18 27h23l3 4-3 4H18v-8z' fill='%230b1220'/%3E%3Ccircle cx='24' cy='43' r='5' fill='%23f4f7fb'/%3E%3Ccircle cx='44' cy='43' r='5' fill='%23f4f7fb'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0d1422;
+      --panel-2: #101a2b;
+      --ink: #eef5ff;
+      --muted: #aab6c8;
+      --line: rgba(255,255,255,.12);
+      --accent: #14f1c9;
+      --accent-2: #67a6ff;
+      --warn: #ffd166;
+      --paper: #f7fafc;
+      --dark: #0b1220;
+      --max: 1180px;
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 241, 201, .16), transparent 30rem),
+        radial-gradient(circle at 80% 8%, rgba(103, 166, 255, .18), transparent 34rem),
+        var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(7, 11, 18, .78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 0 34px rgba(20, 241, 201, .26);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), #8dfbe7);
+      color: #04100e;
+      border-color: transparent;
+    }
+
+    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.32); }
+
+    .hero {
+      padding: 88px 0 70px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(20, 241, 201, .28);
+      border-radius: 999px;
+      background: rgba(20, 241, 201, .08);
+      color: #b8fff2;
+      font-size: .86rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(20, 241, 201, .12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.15rem, 7.4vw, 6.9rem);
+      line-height: .92;
+      letter-spacing: -.075em;
+      max-width: 11ch;
+    }
+
+    .hero p {
+      max-width: 670px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      margin: 26px 0 32px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+    .micro {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: 18px;
+    }
+
+    .ops-panel {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04)),
+        var(--panel);
+      box-shadow: 0 34px 100px rgba(0,0,0,.36);
+      padding: 22px;
+      isolation: isolate;
+    }
+
+    .ops-panel:before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 24px;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, #000, transparent 72%);
+      z-index: -1;
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      color: var(--muted);
+      font-size: .86rem;
+      margin-bottom: 18px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #d7fff8;
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(0,0,0,.18);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 7px;
+    }
+
+    .workflow {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .flow-row b { font-size: .88rem; }
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      overflow: hidden;
+    }
+    .bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .tag { color: var(--warn); font-weight: 800; font-size: .78rem; }
+
+    section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: .98;
+      letter-spacing: -.06em;
+      max-width: 740px;
+    }
+
+    .section-head p, .plain {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      padding: 24px;
+      min-height: 100%;
+    }
+
+    .card.featured {
+      border-color: rgba(20, 241, 201, .36);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 80px rgba(20,241,201,.08);
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.22rem;
+      letter-spacing: -.03em;
+    }
+
+    .card p { color: var(--muted); margin: 0 0 18px; }
+    .card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; color: #dbe6f5; }
+    .card li { display: flex; gap: 9px; align-items: baseline; }
+    .card li:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: 0 0 7px; transform: translateY(-1px); }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .white {
+      background: var(--paper);
+      color: #101827;
+    }
+
+    .white .plain, .white p { color: #506074; }
+    .white .card {
+      background: #fff;
+      border-color: #e4e9f0;
+      box-shadow: 0 16px 42px rgba(16,24,39,.06);
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      border: 1px solid #e4e9f0;
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #e8fff9;
+      color: #05745f;
+      font-weight: 900;
+    }
+
+    .step h3 { margin: 0 0 4px; }
+    .step p { margin: 0; }
+
+    .checklist {
+      border-radius: 28px;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(20,241,201,.14), rgba(103,166,255,.10)),
+        var(--panel-2);
+      border: 1px solid rgba(20,241,201,.24);
+      min-height: 100%;
+    }
+
+    .checklist h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    .checks {
+      margin: 28px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      color: #dce7f6;
+    }
+
+    .checks span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,.055);
+      font-size: .92rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .credentials {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .credential {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .credential b { display: block; margin-bottom: 5px; }
+    .credential span { color: var(--muted); font-size: .92rem; }
+
+    .cta {
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: clamp(30px, 6vw, 56px);
+      background:
+        linear-gradient(135deg, rgba(20,241,201,.18), rgba(103,166,255,.16)),
+        #0b1220;
+      border: 1px solid rgba(255,255,255,.14);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: 0 30px 100px rgba(0,0,0,.24);
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 24px;
+      background: rgba(255,255,255,.075);
+      padding: 22px;
+    }
+
+    .contact-card a {
+      display: block;
+      color: var(--accent);
+      font-weight: 800;
+      word-break: break-word;
+      margin-top: 8px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 920px) {
+      nav { display: none; }
+      .hero-grid, .split, .about-grid, .cta-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 56px; }
+      .cards { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 16px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      h1 { font-size: 3.05rem; }
+      .score, .checks, .credentials { grid-template-columns: 1fr; }
+      .flow-row { grid-template-columns: 1fr; }
+      .button { width: 100%; }
+      .ops-panel, .checklist, .cta-box { border-radius: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="DW Transport Consultancy home">
+        <span class="mark">DW</span>
+        <span>DW Transport Consultancy</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#method">Method</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Transport admin, compliance records and AI-ready operations</div>
+          <h1>Turn manual transport admin into usable control.</h1>
+          <p>DW Transport Consultancy helps small hauliers find duplicated admin, tighten evidence trails and build practical process, systems and reporting improvements before buying another bit of software.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Request the checklist</a>
+            <a class="button" href="#services">See the offers</a>
+          </div>
+          <div class="micro">Led by Daniel Williams CMILT. Based in West Sussex. Built for operators who need clean records and clearer decisions.</div>
+        </div>
+
+        <aside class="ops-panel" aria-label="Operational visibility example">
+          <div class="panel-top">
+            <span>Ops visibility snapshot</span>
+            <span class="status"><span class="pulse"></span> Live process review</span>
+          </div>
+          <div class="score">
+            <div class="metric"><strong>5</strong><span>common re-keying points</span></div>
+            <div class="metric"><strong>18h</strong><span>admin time exposed per week</span></div>
+            <div class="metric"><strong>72%</strong><span>records ready first time</span></div>
+            <div class="metric"><strong>3</strong><span>priority fixes before software</span></div>
+          </div>
+          <div class="workflow">
+            <div class="flow-row"><b>Orders</b><span class="bar"><i style="width:72%"></i></span><span class="tag">duplicate entry</span></div>
+            <div class="flow-row"><b>Planning</b><span class="bar"><i style="width:58%"></i></span><span class="tag">manual update</span></div>
+            <div class="flow-row"><b>Evidence</b><span class="bar"><i style="width:84%"></i></span><span class="tag">audit trail</span></div>
+            <div class="flow-row"><b>Reporting</b><span class="bar"><i style="width:46%"></i></span><span class="tag">not trusted</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Three practical ways to get control back.</h2>
+          <p>No theatre. No supplier kickbacks. The work starts with how the operation actually runs: orders, planning, drivers, vehicles, evidence, invoices and management reporting.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="price">&pound;295 fixed fee</div>
+            <h3>Transport Admin Waste Review</h3>
+            <p>A focused review of where duplicated admin, manual updates and weak handovers are costing time.</p>
+            <ul>
+              <li>Short call and process walkthrough</li>
+              <li>Admin waste map</li>
+              <li>Three practical fixes to start with</li>
+            </ul>
+          </article>
+          <article class="card featured">
+            <div class="price">From &pound;495</div>
+            <h3>Operator Compliance & Admin Health Check</h3>
+            <p>A red, amber and green review of the records and routines that support operator licence confidence.</p>
+            <ul>
+              <li>Drivers, vehicles and core evidence</li>
+              <li>Record gaps and risk areas</li>
+              <li>Plain-English action plan</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="price">From &pound;750</div>
+            <h3>Process, Systems & AI Readiness Review</h3>
+            <p>A practical roadmap for joining up orders, planning, telematics, driver records and reporting.</p>
+            <ul>
+              <li>Current-state workflow map</li>
+              <li>Data and automation opportunities</li>
+              <li>Supplier and implementation questions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="white" id="method">
+      <div class="wrap split">
+        <div>
+          <h2>Fix the operating rhythm before adding more software.</h2>
+          <p class="plain">Most admin waste is hiding in ordinary handovers: the job moves from order to plan to driver update to invoice evidence, but the same information gets typed, checked and chased more than once.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div><h3>Map what actually happens</h3><p>Follow one job through order entry, planning, driver records, vehicle evidence, customer updates and invoicing.</p></div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div><h3>Expose the repeated work</h3><p>Identify re-keying, weak ownership, spreadsheet workarounds and reports that nobody fully trusts.</p></div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div><h3>Build the next useful control</h3><p>Prioritise fixes that make daily operations clearer: better evidence trails, cleaner data and targeted automation.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="wrap about-grid">
+        <div class="checklist">
+          <div class="eyebrow"><span class="pulse"></span> Free lead magnet</div>
+          <h2>Transport Admin & Compliance Readiness Checklist</h2>
+          <p class="plain">A simple scorecard covering the records and routines a small operator should be able to find without a panic search.</p>
+          <div class="checks">
+            <span>Operator licence admin</span>
+            <span>Driver records</span>
+            <span>Vehicle evidence</span>
+            <span>Planning handovers</span>
+            <span>ETA updates</span>
+            <span>Invoice support</span>
+            <span>Reporting visibility</span>
+            <span>Improvement actions</span>
+          </div>
+          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Email me the checklist</a>
+        </div>
+        <div class="card">
+          <h2>About Daniel</h2>
+          <p>DW Transport Consultancy is led by Daniel Williams CMILT, a transport and logistics operations professional based in West Sussex.</p>
+          <div class="credentials">
+            <div class="credential"><b>Fleet operations</b><span>Day-to-day transport management and operational control.</span></div>
+            <div class="credential"><b>Compliance records</b><span>Operator licence routines, evidence and admin discipline.</span></div>
+            <div class="credential"><b>Systems work</b><span>Telematics, process mapping and implementation support.</span></div>
+            <div class="credential"><b>Data-led improvement</b><span>Reporting, automation opportunities and better decisions.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="wrap cta-box">
+        <div>
+          <h2>Got a spreadsheet that everyone relies on and nobody trusts?</h2>
+          <p class="plain">Send a quick email with the issue: admin time, evidence gaps, reporting, systems, telematics or AI-ready process improvement. If it is not a good fit, you will get a straight answer.</p>
+        </div>
+        <div class="contact-card">
+          <span>Contact</span>
+          <a href="mailto:dwtransportconsultancy@gmail.com">dwtransportconsultancy@gmail.com</a>
+          <p>Ask for the checklist, or describe what is taking too much time in the office.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>DW Transport Consultancy. Guidance and checklists are general operational information, not legal advice or a formal compliance sign-off. Always check current requirements with DVSA, the Traffic Commissioner and gov.uk.</p>
+    </div>
+  </footer>
+</body>
+</html>
