@@ -29,6 +29,9 @@
       --warehouse-photo: url("https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&w=1200&q=80");
       --records-photo: url("https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80");
       --road-photo: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
+      --data-photo: url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80");
+      --fleet-photo: url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1400&q=80");
+      --ops-photo: url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1400&q=80");
     }
 
     * { box-sizing: border-box; }
@@ -255,7 +258,7 @@
       position: absolute;
       right: 22px;
       bottom: 0;
-      width: min(430px, calc(100% - 44px));
+      width: min(470px, calc(100% - 44px));
       border: 1px solid rgba(255,255,255,.14);
       border-radius: 24px;
       background:
@@ -294,30 +297,47 @@
     }
 
     .score {
+      display: none;
+    }
+
+    .signal-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
-    .metric {
+    .signal {
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 16px;
-      background: rgba(0,0,0,.18);
+      background:
+        linear-gradient(160deg, rgba(20,241,201,.10), rgba(103,166,255,.05)),
+        rgba(0,0,0,.18);
     }
 
-    .metric strong {
+    .signal strong {
       display: block;
-      font-size: 1.8rem;
+      font-size: 1rem;
       line-height: 1;
-      letter-spacing: -.04em;
+      letter-spacing: -.03em;
     }
 
-    .metric span {
+    .signal span {
       display: block;
       color: var(--muted);
       font-size: .85rem;
       margin-top: 7px;
+    }
+
+    .data-underlay {
+      position: absolute;
+      inset: 18px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.20), rgba(7,11,18,.82)),
+        var(--data-photo) center / cover;
+      opacity: .34;
+      z-index: -2;
     }
 
     .workflow {
@@ -346,6 +366,181 @@
     }
     .bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
     .tag { color: var(--warn); font-weight: 800; font-size: .78rem; }
+
+    .about-dw {
+      padding-top: 50px;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)),
+        var(--panel);
+      box-shadow: 0 28px 90px rgba(0,0,0,.25);
+    }
+
+    .about-image {
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.74)),
+        var(--fleet-photo) center / cover;
+      display: flex;
+      align-items: end;
+      padding: 26px;
+    }
+
+    .about-image span {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.16);
+      font-weight: 800;
+      color: #d7fff8;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-copy {
+      padding: clamp(28px, 5vw, 52px);
+      align-self: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 18px 0 0;
+      max-width: 640px;
+    }
+
+    .quote-line {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(20,241,201,.075);
+      color: #eaf7ff;
+      border-radius: 0 18px 18px 0;
+      font-weight: 700;
+    }
+
+    .capabilities {
+      background: #08101c;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab-shell {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .tab-shell input { position: absolute; opacity: 0; pointer-events: none; }
+
+    .tab-labels {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .tab-labels label {
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+      color: var(--muted);
+      font-weight: 800;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    #tab-tech:checked ~ .tab-labels label[for="tab-tech"],
+    #tab-ops:checked ~ .tab-labels label[for="tab-ops"],
+    #tab-data:checked ~ .tab-labels label[for="tab-data"] {
+      border-color: rgba(20,241,201,.42);
+      background: rgba(20,241,201,.11);
+      color: var(--ink);
+    }
+
+    .tab-panels {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+    }
+
+    .tab-panel { display: none; min-height: 540px; }
+    #tab-tech:checked ~ .tab-panels .tech-panel,
+    #tab-ops:checked ~ .tab-panels .ops-panel-tab,
+    #tab-data:checked ~ .tab-panels .data-panel { display: grid; }
+
+    .tab-panel {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .tab-visual {
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)),
+        var(--warehouse-photo) center / cover;
+      padding: 24px;
+      display: flex;
+      align-items: end;
+    }
+
+    .tech-panel .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--data-photo); }
+    .ops-panel-tab .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--ops-photo); }
+    .data-panel .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--records-photo); }
+
+    .visual-note {
+      max-width: 360px;
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .visual-note b { display: block; line-height: 1.2; }
+    .visual-note span { display: block; color: var(--muted); margin-top: 7px; font-size: .92rem; }
+
+    .tab-copy {
+      padding: clamp(28px, 4vw, 44px);
+    }
+
+    .tab-copy h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .tab-copy p { color: var(--muted); margin: 0 0 22px; }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.045);
+      color: #dce7f6;
+    }
+
+    .feature-list b { display: block; color: var(--ink); margin-bottom: 3px; }
 
     section { padding: 82px 0; }
     .section-head {
@@ -608,21 +803,19 @@
       align-items: stretch;
     }
 
-    .credentials {
+    .proof-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .credential {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255,255,255,.045);
+    .proof-list li {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: #dce7f6;
     }
-
-    .credential b { display: block; margin-bottom: 5px; }
-    .credential span { color: var(--muted); font-size: .92rem; }
 
     .cta {
       padding: 80px 0;
@@ -666,7 +859,7 @@
 
     @media (max-width: 920px) {
       nav { display: none; }
-      .hero-grid, .split, .about-grid, .cta-box { grid-template-columns: 1fr; }
+      .hero-grid, .split, .about-grid, .cta-box, .about-panel, .tab-shell, .tab-panel { grid-template-columns: 1fr; }
       .hero { padding-top: 56px; }
       .cards { grid-template-columns: 1fr; }
       .section-head { display: block; }
@@ -674,12 +867,15 @@
       .transport-visual { min-height: 560px; }
       .image-grid { grid-template-columns: 1fr; }
       .image-card, .image-card.tall { min-height: 300px; }
+      .about-image { min-height: 340px; }
+      .tab-panel { min-height: auto; }
+      .tab-visual { min-height: 320px; }
     }
 
     @media (max-width: 560px) {
       .wrap { width: min(100% - 28px, var(--max)); }
       h1 { font-size: 3.05rem; }
-      .score, .checks, .credentials { grid-template-columns: 1fr; }
+      .signal-grid, .checks { grid-template-columns: 1fr; }
       .flow-row { grid-template-columns: 1fr; }
       .button { width: 100%; }
       .yard-photo { inset: 0 0 170px 0; }
@@ -696,8 +892,9 @@
         <span>DW Transport Consultancy</span>
       </a>
       <nav aria-label="Main navigation">
+        <a href="#about">About DW</a>
+        <a href="#capabilities">Tech & Ops</a>
         <a href="#services">Services</a>
-        <a href="#method">Method</a>
         <a href="#checklist">Checklist</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -709,8 +906,8 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow"><span class="pulse"></span> UK based transport support with full EU coverage</div>
-          <h1>Turn manual transport admin into usable control.</h1>
-          <p>DW Transport Consultancy helps small hauliers find duplicated admin, tighten evidence trails and build practical process, systems and reporting improvements before buying another bit of software.</p>
+          <h1>Find the small leaks that cost transport operators money.</h1>
+          <p>DW Transport Consultancy helps operators spot the repeated admin, disconnected systems, weak handovers and safety risks that people often miss because they have become part of the routine.</p>
           <div class="hero-actions">
             <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Request the checklist</a>
             <a class="button" href="#services">See the offers</a>
@@ -726,27 +923,110 @@
         <aside class="transport-visual" aria-label="Haulage operation with process review notes">
           <div class="yard-photo" role="img" aria-label="Heavy goods vehicle on the road"></div>
           <div class="photo-label">
-            <b>Real transport work, cleaner control.</b>
-            <span>Orders, planning, vehicle evidence and invoice support joined into one usable operating picture.</span>
+            <b>Transport operations leave clues.</b>
+            <span>The saving is usually hidden in the handover, the duplicated entry, the missing link between systems, or the job nobody has questioned for years.</span>
           </div>
           <div class="ops-panel">
+            <div class="data-underlay"></div>
             <div class="panel-top">
-              <span>Operator admin review</span>
-              <span class="status"><span class="pulse"></span> Process first</span>
+              <span>Evidence and data review</span>
+              <span class="status"><span class="pulse"></span> Find the pattern</span>
             </div>
-            <div class="score">
-              <div class="metric"><strong>5</strong><span>common re-keying points</span></div>
-              <div class="metric"><strong>18h</strong><span>admin time exposed per week</span></div>
-              <div class="metric"><strong>72%</strong><span>records ready first time</span></div>
-              <div class="metric"><strong>3</strong><span>priority fixes before software</span></div>
+            <div class="signal-grid">
+              <div class="signal"><strong>Tacho analysis</strong><span>driver hours, exceptions and avoidable risk</span></div>
+              <div class="signal"><strong>Dashcams</strong><span>incident learning and driver protection</span></div>
+              <div class="signal"><strong>Telematics</strong><span>behaviour, utilisation and evidence</span></div>
+              <div class="signal"><strong>Workflows</strong><span>where duplicated admin compounds</span></div>
             </div>
             <div class="workflow">
-              <div class="flow-row"><b>Orders</b><span class="bar"><i style="width:72%"></i></span><span class="tag">duplicate entry</span></div>
-              <div class="flow-row"><b>Planning</b><span class="bar"><i style="width:58%"></i></span><span class="tag">manual update</span></div>
-              <div class="flow-row"><b>Evidence</b><span class="bar"><i style="width:84%"></i></span><span class="tag">audit trail</span></div>
+              <div class="flow-row"><b>System A</b><span class="bar"><i style="width:78%"></i></span><span class="tag">holds data</span></div>
+              <div class="flow-row"><b>System B</b><span class="bar"><i style="width:42%"></i></span><span class="tag">needs data</span></div>
+              <div class="flow-row"><b>People</b><span class="bar"><i style="width:64%"></i></span><span class="tag">bridge the gap</span></div>
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="about-dw" id="about">
+      <div class="wrap about-panel">
+        <div class="about-image" role="img" aria-label="Fleet and transport operation">
+          <span>About DW</span>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow"><span class="pulse"></span> Why DW Transport Consultancy exists</div>
+          <h2>Built from years of spotting the things others walk past.</h2>
+          <p>I am Daniel Williams CMILT, a dad of two and a transport professional based in West Sussex. Since leaving the army, transport is what I have known: operations, people, compliance records, systems, reporting and the pressure of keeping work moving safely.</p>
+          <p>In previous roles I have repeatedly found savings by analysing the small things people often miss: duplicated entry, repeated reports, manual workarounds, disconnected systems, unclear ownership and jobs being done simply because that is how they have always been done.</p>
+          <p>DW exists because those little things add up. The aim is not to make people less valuable. It is to free them from low-value admin, protect the business they represent, and give operators clearer data, safer processes and better control.</p>
+          <div class="quote-line">If a task only exists because nobody has reviewed it, it deserves to be challenged.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="capabilities" id="capabilities">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Tech, ops and data that actually join up.</h2>
+          <p>The value is not in adding another system. It is in making the systems, people and evidence work together so managers can see what is really happening.</p>
+        </div>
+        <div class="tab-shell">
+          <input type="radio" name="capability" id="tab-tech" checked>
+          <input type="radio" name="capability" id="tab-ops">
+          <input type="radio" name="capability" id="tab-data">
+          <div class="tab-labels" aria-label="Capability sections">
+            <label for="tab-tech">Tech integrations</label>
+            <label for="tab-ops">Ops and workforce</label>
+            <label for="tab-data">Data and savings</label>
+          </div>
+          <div class="tab-panels">
+            <article class="tab-panel tech-panel">
+              <div class="tab-visual">
+                <div class="visual-note"><b>Dashcams, tacho, telematics, maintenance and admin systems.</b><span>Make them speak to each other before asking people to bridge the gap manually.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Systems should reduce admin, not create another place to check.</h3>
+                <p>DW reviews where data is already being created and how it could be reused across the business instead of being retyped, chased or rebuilt in spreadsheets.</p>
+                <ul class="feature-list">
+                  <li><b>Dashcams and telematics</b>Use footage, behaviour data and incident evidence to support drivers and protect the operator.</li>
+                  <li><b>Tacho and driver analysis</b>Turn exceptions, infringements and patterns into practical management actions.</li>
+                  <li><b>System integration</b>Connect planning, maintenance, invoicing, reporting and customer updates so information moves once.</li>
+                  <li><b>AI and automation</b>Automate repeatable admin carefully, with human checks where the risk needs them.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tab-panel ops-panel-tab">
+              <div class="tab-visual">
+                <div class="visual-note"><b>Safe workforce, protected business.</b><span>Good processes should protect drivers, managers, customers and the licence.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Operations are about people as much as vehicles.</h3>
+                <p>Processes should help managers run the workforce safely, fairly and consistently while protecting the business those people represent every day.</p>
+                <ul class="feature-list">
+                  <li><b>Workforce safety</b>Review the routines that shape driver behaviour, communication and escalation.</li>
+                  <li><b>Manager visibility</b>Make it easier to see risk early: hours, defects, fatigue signals, repeated incidents and weak handovers.</li>
+                  <li><b>Business protection</b>Build evidence trails that support drivers and the company if something is challenged.</li>
+                  <li><b>Practical control</b>Keep procedures simple enough that they are followed when the office is busy.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tab-panel data-panel">
+              <div class="tab-visual">
+                <div class="visual-note"><b>The savings are often in the boring bits.</b><span>Repeated minutes, repeated checks and repeated work become real cost.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Small inefficiencies become expensive when they happen every day.</h3>
+                <p>DW looks for the little misses that add up: double entry, unnecessary reports, avoidable calls, duplicated checks and manual workarounds that everyone has stopped questioning.</p>
+                <ul class="feature-list">
+                  <li><b>Admin waste review</b>Map repeated tasks and estimate where time is being absorbed.</li>
+                  <li><b>Data quality checks</b>Find where reports conflict because systems do not share the same truth.</li>
+                  <li><b>Evidence gaps</b>Spot the missing link before it becomes a disputed invoice, audit issue or management blind spot.</li>
+                  <li><b>Actionable reporting</b>Build reports that help someone decide, not just decorate a meeting.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -861,16 +1141,15 @@
           <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request">Email me the checklist</a>
         </div>
         <div class="card">
-          <h2>About Daniel</h2>
-          <p>I am Daniel Williams CMILT, a dad of three and a transport professional based in West Sussex. Since leaving the army, transport is what I have known: fleet operations, compliance records, systems, reporting and the everyday pressure of keeping work moving.</p>
-          <p>Over the years I have often streamlined processes to the point where a job no longer needed to be done in the same way. Not to remove value from people, but to stop good people spending their week doing work that only exists because "that is how it has always been done".</p>
-          <p>That is why I started DW Transport Consultancy: to help operators challenge the admin, handovers and reports that slow them down, then free people up to do better work with cleaner data, stronger records and simpler processes. UK based, with full EU coverage.</p>
-          <div class="credentials">
-            <div class="credential"><b>Army to transport</b><span>Practical discipline, structure and a career built in transport operations.</span></div>
-            <div class="credential"><b>Dad of three</b><span>Real-life efficiency matters when time, pressure and responsibility all compete.</span></div>
-            <div class="credential"><b>Process challenger</b><span>Questioning repeated work that exists only because it has always been done that way.</span></div>
-            <div class="credential"><b>Data-led improvement</b><span>Cleaner records, better reporting and sensible automation that supports people.</span></div>
-          </div>
+          <h2>What it helps you question</h2>
+          <p>The checklist is not a legal sign-off. It is a way to spot where admin, records, evidence and reporting may already be showing you where time, money or control is leaking.</p>
+          <ul class="proof-list">
+            <li>Are drivers, vehicles, defects, incidents and maintenance records easy to find when needed?</li>
+            <li>Are the same updates being typed into more than one place?</li>
+            <li>Do reports match what actually happened in the operation?</li>
+            <li>Could dashcam, tacho, telematics or planning data remove manual chasing?</li>
+            <li>Are people doing work because it adds value, or because nobody has reviewed it?</li>
+          </ul>
         </div>
       </div>
     </section>
