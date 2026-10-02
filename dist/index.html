@@ -977,6 +977,12 @@
       gap: 12px;
     }
 
+    .calculator-note {
+      margin: -2px 0 4px;
+      color: #506074;
+      font-size: .92rem;
+    }
+
     .calculator-card label {
       font-weight: 800;
       color: #172033;
@@ -1119,6 +1125,19 @@
       .yard-photo { inset: 0 0 170px 0; }
       .photo-label { left: 14px; right: 14px; bottom: 190px; }
       .ops-panel, .checklist, .cta-box, .yard-photo, .depot-strip { border-radius: 22px; }
+      .transport-visual { min-height: 690px; }
+      .yard-photo { bottom: 220px; }
+      .photo-label { bottom: 244px; }
+      .ops-panel { left: 0; right: 0; bottom: 0; width: 100%; padding: 18px; }
+      .panel-top { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .section-menu { width: 100%; }
+      .section-menu a { flex: 1 1 calc(50% - 10px); justify-content: center; }
+      .calculator-card { padding: 20px; border-radius: 22px; }
+      .calculator-card input { min-height: 54px; }
+      .calc-results { grid-template-columns: 1fr; }
+      .image-card, .image-card.tall, .visual-tile, .proof-card { min-height: 280px; }
+      .tab-visual { min-height: 280px; }
+      .depot-strip { min-height: 300px; }
     }
   </style>
 </head>
@@ -1406,14 +1425,12 @@
         <div>
           <div class="eyebrow"><span class="pulse"></span> Quick admin waste estimate</div>
           <h2>Put a rough cost against repeated transport admin.</h2>
-          <p class="plain">This is a simple sense-check, not a finance model. Change the numbers and see what repeated office tasks could be costing before anyone has even looked at disputes, missed evidence or delayed invoicing.</p>
+          <p class="plain">This is a simple sense-check, not a finance model. Estimate the total hours your team spends repeating office tasks, then see the rough monthly and annual cost before anyone has even looked at disputes, missed evidence or delayed invoicing.</p>
         </div>
         <div class="calculator-card" aria-label="Admin waste calculator">
-          <label for="vehicles">Vehicles in operation</label>
-          <input id="vehicles" type="number" min="1" value="12">
-
-          <label for="minutes">Repeated admin minutes per vehicle per day</label>
-          <input id="minutes" type="number" min="1" value="12">
+          <label for="hours">Repeated admin hours per working day</label>
+          <input id="hours" type="number" min="0" step="0.5" value="2.4">
+          <p class="calculator-note">Use the total across the office, rather than a fleet-size estimate. For example, 2.4 hours means roughly 2 hours 24 minutes of repeated work each day.</p>
 
           <label for="rate">Loaded hourly admin cost</label>
           <input id="rate" type="number" min="1" value="18">
@@ -1538,14 +1555,14 @@
     window.addEventListener("hashchange", openSectionTab);
     openSectionTab();
 
-    const calcInputs = ["vehicles", "minutes", "rate", "days"].map((id) => document.getElementById(id));
+    const calcInputs = ["hours", "rate", "days"].map((id) => document.getElementById(id));
     const monthlyCost = document.getElementById("monthlyCost");
     const annualCost = document.getElementById("annualCost");
     const money = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
 
     function updateAdminWaste() {
-      const [vehicles, minutes, rate, days] = calcInputs.map((input) => Math.max(Number(input?.value || 0), 0));
-      const monthly = vehicles * (minutes / 60) * rate * days;
+      const [hours, rate, days] = calcInputs.map((input) => Math.max(Number(input?.value || 0), 0));
+      const monthly = hours * rate * days;
       if (monthlyCost) monthlyCost.textContent = money.format(monthly);
       if (annualCost) annualCost.textContent = money.format(monthly * 12);
     }
