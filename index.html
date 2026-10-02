@@ -1,0 +1,1632 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DW Transport Consultancy | Transport admin, compliance and AI-ready operations</title>
+  <meta name="description" content="Modern transport operations consultancy for small hauliers: admin waste reviews, compliance record checks, systems roadmaps and sensible AI-enabled reporting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cpath d='M12 39h34l6-8-6-8H12v16z' fill='%2314f1c9'/%3E%3Cpath d='M18 27h23l3 4-3 4H18v-8z' fill='%230b1220'/%3E%3Ccircle cx='24' cy='43' r='5' fill='%23f4f7fb'/%3E%3Ccircle cx='44' cy='43' r='5' fill='%23f4f7fb'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #0d1422;
+      --panel-2: #101a2b;
+      --ink: #eef5ff;
+      --muted: #aab6c8;
+      --line: rgba(255,255,255,.12);
+      --accent: #14f1c9;
+      --accent-2: #67a6ff;
+      --warn: #ffd166;
+      --paper: #f7fafc;
+      --dark: #0b1220;
+      --max: 1180px;
+      --radius: 22px;
+      --truck-photo: url("assets/dw-transport-hero-planning-desk.png");
+      --depot-photo: url("assets/dw-transport-ops-handover.png");
+      --warehouse-photo: url("assets/dw-transport-tech-integrations.png");
+      --records-photo: url("assets/dw-transport-checklist-report.png");
+      --road-photo: url("assets/dw-transport-checklist-report.png");
+      --data-photo: url("assets/dw-transport-tech-integrations.png");
+      --fleet-photo: url("assets/dw-transport-hero-planning-desk.png");
+      --ops-photo: url("assets/dw-transport-ops-handover.png");
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(20, 241, 201, .16), transparent 30rem),
+        radial-gradient(circle at 80% 8%, rgba(103, 166, 255, .18), transparent 34rem),
+        var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(7, 11, 18, .78);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--dark);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 0 34px rgba(20, 241, 201, .26);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+
+    .section-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 22px;
+      background: rgba(255,255,255,.045);
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    .section-menu a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,11,18,.40);
+      color: #dbe8f6;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .section-menu a:hover {
+      border-color: rgba(20,241,201,.38);
+      color: var(--ink);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--accent), #8dfbe7);
+      color: #04100e;
+      border-color: transparent;
+    }
+
+    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.32); }
+
+    .hero {
+      padding: 88px 0 70px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(20, 241, 201, .28);
+      border-radius: 999px;
+      background: rgba(20, 241, 201, .08);
+      color: #b8fff2;
+      font-size: .86rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(20, 241, 201, .12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.15rem, 7.4vw, 6.9rem);
+      line-height: .92;
+      letter-spacing: -.075em;
+      max-width: 11ch;
+    }
+
+    .hero p {
+      max-width: 670px;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      margin: 26px 0 32px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+    .micro {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: 18px;
+    }
+
+    .coverage-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .coverage-badges span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055);
+      color: #dbe8f6;
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .transport-visual {
+      position: relative;
+      min-height: 620px;
+    }
+
+    .yard-photo {
+      position: absolute;
+      inset: 0 0 70px 0;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.72)),
+        var(--truck-photo) center / cover;
+      box-shadow: 0 34px 100px rgba(0,0,0,.38);
+      overflow: hidden;
+    }
+
+    .yard-photo:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(110deg, rgba(7,11,18,.76), transparent 55%),
+        radial-gradient(circle at 80% 12%, rgba(20,241,201,.18), transparent 18rem);
+      mix-blend-mode: multiply;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 20px;
+      bottom: 90px;
+      z-index: 1;
+      max-width: 360px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(7,11,18,.76);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(12px);
+    }
+
+    .photo-label b {
+      display: block;
+      line-height: 1.15;
+      letter-spacing: -.03em;
+    }
+
+    .photo-label span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .ops-panel {
+      position: absolute;
+      right: 22px;
+      bottom: 0;
+      width: min(470px, calc(100% - 44px));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(14,23,38,.92), rgba(10,16,27,.94));
+      box-shadow: 0 28px 80px rgba(0,0,0,.38);
+      padding: 22px;
+      isolation: isolate;
+      backdrop-filter: blur(18px);
+    }
+
+    .ops-panel:before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 24px;
+      background-image: linear-gradient(90deg, rgba(20,241,201,.12), transparent);
+      mask-image: linear-gradient(to bottom, #000, transparent 88%);
+      z-index: -1;
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      color: var(--muted);
+      font-size: .86rem;
+      margin-bottom: 18px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #d7fff8;
+    }
+
+    .score {
+      display: none;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .signal {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background:
+        linear-gradient(160deg, rgba(20,241,201,.10), rgba(103,166,255,.05)),
+        rgba(0,0,0,.18);
+    }
+
+    .signal strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1;
+      letter-spacing: -.03em;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 7px;
+    }
+
+    .data-underlay {
+      position: absolute;
+      inset: 18px;
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.20), rgba(7,11,18,.82)),
+        var(--data-photo) center / cover;
+      opacity: .34;
+      z-index: -2;
+    }
+
+    .workflow {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .flow-row b { font-size: .88rem; }
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      overflow: hidden;
+    }
+    .bar i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+    .tag { color: var(--warn); font-weight: 800; font-size: .78rem; }
+
+    .about-dw {
+      padding-top: 50px;
+    }
+
+    .about-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 22px;
+      align-items: stretch;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)),
+        var(--panel);
+      box-shadow: 0 28px 90px rgba(0,0,0,.25);
+    }
+
+    .about-image {
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.74)),
+        var(--fleet-photo) center / cover;
+      display: flex;
+      align-items: end;
+      padding: 26px;
+    }
+
+    .about-image span {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.16);
+      font-weight: 800;
+      color: #d7fff8;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-copy {
+      padding: clamp(28px, 5vw, 52px);
+      align-self: center;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 18px 0 0;
+      max-width: 640px;
+    }
+
+    .quote-line {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(20,241,201,.075);
+      color: #eaf7ff;
+      border-radius: 0 18px 18px 0;
+      font-weight: 700;
+    }
+
+    .capabilities {
+      background: #08101c;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab-shell {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .tab-shell input { position: absolute; opacity: 0; pointer-events: none; }
+
+    .tab-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .tab-labels label {
+      flex: 1 1 180px;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 18px;
+      background: rgba(255,255,255,.045);
+      color: var(--muted);
+      font-weight: 800;
+      text-align: center;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+
+    #tab-tech:checked ~ .tab-labels label[for="tab-tech"],
+    #tab-ops:checked ~ .tab-labels label[for="tab-ops"],
+    #tab-data:checked ~ .tab-labels label[for="tab-data"] {
+      border-color: rgba(20,241,201,.42);
+      background: rgba(20,241,201,.11);
+      color: var(--ink);
+    }
+
+    .tab-panels {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+    }
+
+    .tab-panel { display: none; min-height: 540px; }
+    #tab-tech:checked ~ .tab-panels .tech-panel,
+    #tab-ops:checked ~ .tab-panels .ops-panel-tab,
+    #tab-data:checked ~ .tab-panels .data-panel { display: grid; }
+
+    .tab-panel {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .tab-visual {
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)),
+        var(--warehouse-photo) center / cover;
+      padding: 24px;
+      display: flex;
+      align-items: end;
+    }
+
+    .tech-panel .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--data-photo); }
+    .ops-panel-tab .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--ops-photo); }
+    .data-panel .tab-visual { background-image: linear-gradient(180deg, rgba(7,11,18,.08), rgba(7,11,18,.78)), var(--records-photo); }
+
+    .visual-note {
+      max-width: 360px;
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .visual-note b { display: block; line-height: 1.2; }
+    .visual-note span { display: block; color: var(--muted); margin-top: 7px; font-size: .92rem; }
+
+    .tab-copy {
+      padding: clamp(28px, 4vw, 44px);
+    }
+
+    .tab-copy h3 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .tab-copy p { color: var(--muted); margin: 0 0 22px; }
+
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.045);
+      color: #dce7f6;
+    }
+
+    .feature-list b { display: block; color: var(--ink); margin-bottom: 3px; }
+
+    .visual-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .visual-tile {
+      min-height: 210px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)),
+        var(--data-photo) center / cover;
+      display: flex;
+      align-items: end;
+      padding: 18px;
+    }
+
+    .visual-tile:nth-child(2) { background-image: linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)), var(--ops-photo); }
+    .visual-tile:nth-child(3) { background-image: linear-gradient(180deg, rgba(7,11,18,.06), rgba(7,11,18,.78)), var(--records-photo); }
+
+    .visual-tile b {
+      display: block;
+      line-height: 1.18;
+      letter-spacing: -.03em;
+    }
+
+    .visual-tile span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    section { padding: 82px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: .98;
+      letter-spacing: -.06em;
+      max-width: 740px;
+    }
+
+    .section-head p, .plain {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .visual-proof {
+      padding-top: 24px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .image-card {
+      position: relative;
+      min-height: 320px;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: #111;
+      display: flex;
+      align-items: end;
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+    }
+
+    .image-card.tall { min-height: 420px; }
+    .image-card.yard { background: linear-gradient(180deg, transparent, rgba(7,11,18,.86)), var(--depot-photo) center / cover; }
+    .image-card.warehouse { background: linear-gradient(180deg, transparent, rgba(7,11,18,.88)), var(--warehouse-photo) center / cover; }
+    .image-card.records { background: linear-gradient(180deg, transparent, rgba(7,11,18,.9)), var(--records-photo) center / cover; }
+
+    .image-card div {
+      width: 100%;
+      padding: 22px;
+      background: linear-gradient(180deg, transparent, rgba(7,11,18,.72));
+    }
+
+    .image-card b {
+      display: block;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+
+    .image-card span {
+      display: block;
+      color: var(--muted);
+      margin-top: 7px;
+      font-size: .94rem;
+    }
+
+    .card-visual {
+      height: 138px;
+      margin: -24px -24px 22px;
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(7,11,18,.05), rgba(7,11,18,.74)), var(--truck-photo) center / cover;
+    }
+
+    .card-visual.records { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--records-photo); }
+    .card-visual.warehouse { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--warehouse-photo); }
+    .card-visual.depot { background-image: linear-gradient(180deg, rgba(7,11,18,.03), rgba(7,11,18,.76)), var(--depot-photo); }
+
+    .depot-strip {
+      margin: 34px 0 0;
+      min-height: 260px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.14);
+      background:
+        linear-gradient(90deg, rgba(7,11,18,.86), rgba(7,11,18,.35)),
+        var(--depot-photo) center / cover;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      padding: 24px;
+      box-shadow: inset 0 -70px 90px rgba(0,0,0,.28);
+    }
+
+    .depot-strip div {
+      max-width: 620px;
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+    }
+
+    .depot-strip b {
+      display: block;
+      font-size: 1.24rem;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+
+    .depot-strip span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+      padding: 24px;
+      min-height: 100%;
+    }
+
+    .card.featured {
+      border-color: rgba(20, 241, 201, .36);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 20px 80px rgba(20,241,201,.08);
+    }
+
+    .price {
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 1.22rem;
+      letter-spacing: -.03em;
+    }
+
+    .card p { color: var(--muted); margin: 0 0 18px; }
+    .card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; color: #dbe6f5; }
+    .card li { display: flex; gap: 9px; align-items: baseline; }
+    .card li:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: 0 0 7px; transform: translateY(-1px); }
+
+    .split {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .white {
+      background: var(--paper);
+      color: #101827;
+    }
+
+    .white .plain, .white p { color: #506074; }
+    .white .eyebrow {
+      background: #e8fff9;
+      color: #05745f;
+      border-color: #b7f4e8;
+    }
+    .white .card {
+      background: #fff;
+      border-color: #e4e9f0;
+      box-shadow: 0 16px 42px rgba(16,24,39,.06);
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      border: 1px solid #e4e9f0;
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .num {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #e8fff9;
+      color: #05745f;
+      font-weight: 900;
+    }
+
+    .step h3 { margin: 0 0 4px; }
+    .step p { margin: 0; }
+
+    .checklist {
+      border-radius: 28px;
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(20,241,201,.14), rgba(103,166,255,.10)),
+        var(--panel-2);
+      border: 1px solid rgba(20,241,201,.24);
+      min-height: 100%;
+    }
+
+    .checklist-photo {
+      min-height: 220px;
+      border-radius: 24px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.10), rgba(7,11,18,.70)),
+        var(--road-photo) center / cover;
+      margin: -8px -8px 26px;
+      border: 1px solid rgba(255,255,255,.14);
+      display: flex;
+      align-items: end;
+      padding: 18px;
+    }
+
+    .checklist-photo span {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(7,11,18,.74);
+      border: 1px solid rgba(255,255,255,.15);
+      color: #d7fff8;
+      font-size: .84rem;
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
+    .checklist h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    .checks {
+      margin: 28px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      color: #dce7f6;
+    }
+
+    .checks span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255,255,255,.055);
+      font-size: .92rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .proof-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .proof-list li {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: #dce7f6;
+    }
+
+    .proof-section {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015)),
+        #08101c;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .proof-card {
+      min-height: 290px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 26px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(7,11,18,.18), rgba(7,11,18,.90)),
+        var(--records-photo) center / cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      box-shadow: 0 24px 70px rgba(0,0,0,.20);
+    }
+
+    .proof-card:nth-child(2) {
+      background-image:
+        linear-gradient(180deg, rgba(7,11,18,.12), rgba(7,11,18,.90)),
+        var(--ops-photo);
+    }
+
+    .proof-card:nth-child(3) {
+      background-image:
+        linear-gradient(180deg, rgba(7,11,18,.12), rgba(7,11,18,.90)),
+        var(--data-photo);
+    }
+
+    .proof-card span {
+      width: fit-content;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(20,241,201,.12);
+      border: 1px solid rgba(20,241,201,.28);
+      color: #b8fff2;
+      font-size: .8rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .proof-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      letter-spacing: -.035em;
+    }
+
+    .proof-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .calculator-card {
+      border: 1px solid #dce4ee;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 18px 55px rgba(16,24,39,.08);
+      padding: clamp(22px, 4vw, 34px);
+      display: grid;
+      gap: 12px;
+    }
+
+    .calculator-note {
+      margin: -2px 0 4px;
+      color: #506074;
+      font-size: .92rem;
+    }
+
+    .calculator-card label {
+      font-weight: 800;
+      color: #172033;
+      margin-top: 4px;
+    }
+
+    .calculator-card input {
+      width: 100%;
+      border: 1px solid #ccd6e3;
+      border-radius: 16px;
+      min-height: 48px;
+      padding: 0 14px;
+      font: inherit;
+      color: #172033;
+      background: #f8fafc;
+    }
+
+    .calculator-card input:focus {
+      outline: 3px solid rgba(20,241,201,.26);
+      border-color: #11bda0;
+    }
+
+    .calc-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 8px 0 6px;
+    }
+
+    .calc-results div {
+      border-radius: 20px;
+      padding: 16px;
+      background: #07111f;
+      color: #fff;
+    }
+
+    .calc-results span {
+      display: block;
+      color: #aab6c8;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .calc-results strong {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      letter-spacing: -.045em;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    details {
+      border: 1px solid #e4e9f0;
+      border-radius: 20px;
+      background: #fff;
+      padding: 18px 20px;
+      box-shadow: 0 12px 36px rgba(16,24,39,.05);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: #101827;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: #506074;
+    }
+
+    .cta {
+      padding: 80px 0;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      padding: clamp(30px, 6vw, 56px);
+      background:
+        linear-gradient(135deg, rgba(20,241,201,.18), rgba(103,166,255,.16)),
+        #0b1220;
+      border: 1px solid rgba(255,255,255,.14);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: center;
+      box-shadow: 0 30px 100px rgba(0,0,0,.24);
+    }
+
+    .contact-card {
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 24px;
+      background: rgba(255,255,255,.075);
+      padding: 22px;
+    }
+
+    .contact-card a {
+      display: block;
+      color: var(--accent);
+      font-weight: 800;
+      word-break: break-word;
+      margin-top: 8px;
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 12px 13px;
+      font: inherit;
+      color: var(--ink);
+      background: rgba(255,255,255,.08);
+    }
+
+    .lead-form textarea { min-height: 86px; resize: vertical; }
+    .lead-form input::placeholder,
+    .lead-form textarea::placeholder { color: #aab6c8; }
+
+    .form-note { margin: 0; color: var(--muted); font-size: .78rem; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 920px) {
+      nav { display: none; }
+      .hero-grid, .split, .about-grid, .cta-box, .about-panel, .tab-shell, .tab-panel { grid-template-columns: 1fr; }
+      .calculator-grid, .proof-grid, .faq-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 56px; }
+      .cards { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 16px; }
+      .transport-visual { min-height: 560px; }
+      .image-grid { grid-template-columns: 1fr; }
+      .visual-band { grid-template-columns: 1fr; }
+      .image-card, .image-card.tall { min-height: 300px; }
+      .about-image { min-height: 340px; }
+      .tab-panel { min-height: auto; }
+      .tab-visual { min-height: 320px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, var(--max)); }
+      h1 { font-size: 3.05rem; }
+      .signal-grid, .checks { grid-template-columns: 1fr; }
+      .calc-results { grid-template-columns: 1fr; }
+      .flow-row { grid-template-columns: 1fr; }
+      .button { width: 100%; }
+      .yard-photo { inset: 0 0 170px 0; }
+      .photo-label { left: 14px; right: 14px; bottom: 190px; }
+      .ops-panel, .checklist, .cta-box, .yard-photo, .depot-strip { border-radius: 22px; }
+      .transport-visual { min-height: 690px; }
+      .yard-photo { bottom: 220px; }
+      .photo-label { bottom: 244px; }
+      .ops-panel { left: 0; right: 0; bottom: 0; width: 100%; padding: 18px; }
+      .panel-top { align-items: flex-start; flex-direction: column; gap: 6px; }
+      .section-menu { width: 100%; }
+      .section-menu a { flex: 1 1 calc(50% - 10px); justify-content: center; }
+      .calculator-card { padding: 20px; border-radius: 22px; }
+      .calculator-card input { min-height: 54px; }
+      .calc-results { grid-template-columns: 1fr; }
+      .image-card, .image-card.tall, .visual-tile, .proof-card { min-height: 280px; }
+      .tab-visual { min-height: 280px; }
+      .depot-strip { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="DW Transport Consultancy home">
+        <span class="mark">DW</span>
+        <span>DW Transport Consultancy</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About DW</a>
+        <a href="#tech">Tech</a>
+        <a href="#ops">Ops</a>
+        <a href="#data">Data</a>
+        <a href="#services">Services</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> UK based transport support with full EU coverage</div>
+          <h1>Spot the waste hiding in your transport operation.</h1>
+          <p>DW Transport Consultancy helps operators review the work nobody questions: repeated admin, disconnected systems, weak handovers, unclear evidence and the small daily misses that quietly cost time, money and control.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://calendar.app.google/sxqBJheY5VRdqxrt8">Book a 30-minute review</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Request the checklist</a>
+            <a class="button" href="#services">See the offers</a>
+          </div>
+          <div class="section-menu" aria-label="Main page sections">
+            <a href="#about">About DW</a>
+            <a href="#tech">Tech</a>
+            <a href="#ops">Ops</a>
+            <a href="#data">Data</a>
+            <a href="#services">Services</a>
+            <a href="#calculator">Calculator</a>
+          </div>
+          <div class="coverage-badges" aria-label="Coverage">
+            <span>UK based</span>
+            <span>Full EU coverage</span>
+            <span>HGV and operator admin focus</span>
+          </div>
+          <div class="micro">Led by Daniel Williams CMILT. Based in West Sussex, supporting UK and EU transport operations.</div>
+        </div>
+
+        <aside class="transport-visual" aria-label="Haulage operation with process review notes">
+          <div class="yard-photo" role="img" aria-label="Heavy goods vehicle on the road"></div>
+          <div class="photo-label">
+            <b>Transport operations leave clues.</b>
+            <span>The saving is usually hidden in the handover, the duplicated entry, the missing link between systems, or the job nobody has questioned for years.</span>
+          </div>
+          <div class="ops-panel">
+            <div class="data-underlay"></div>
+            <div class="panel-top">
+              <span>Evidence and data review</span>
+              <span class="status"><span class="pulse"></span> Find the pattern</span>
+            </div>
+            <div class="signal-grid">
+              <div class="signal"><strong>Tacho analysis</strong><span>driver hours, exceptions and avoidable risk</span></div>
+              <div class="signal"><strong>Dashcams</strong><span>incident learning and driver protection</span></div>
+              <div class="signal"><strong>Telematics</strong><span>behaviour, utilisation and evidence</span></div>
+              <div class="signal"><strong>Workflows</strong><span>where duplicated admin compounds</span></div>
+            </div>
+            <div class="workflow">
+              <div class="flow-row"><b>System A</b><span class="bar"><i style="width:78%"></i></span><span class="tag">holds data</span></div>
+              <div class="flow-row"><b>System B</b><span class="bar"><i style="width:42%"></i></span><span class="tag">needs data</span></div>
+              <div class="flow-row"><b>People</b><span class="bar"><i style="width:64%"></i></span><span class="tag">bridge the gap</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="about-dw" id="about">
+      <div class="wrap about-panel">
+        <div class="about-image" role="img" aria-label="Fleet and transport operation">
+          <span>About DW</span>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow"><span class="pulse"></span> Why DW Transport Consultancy exists</div>
+          <h2>Built from years of spotting the things others walk past.</h2>
+          <p>I am Daniel Williams CMILT, a transport professional based in West Sussex. Since leaving the army, transport is what I have known: operations, people, compliance records, systems, reporting and the pressure of keeping work moving safely.</p>
+          <p>In previous roles I have repeatedly found savings by analysing the small things people often miss: duplicated entry, repeated reports, manual workarounds, disconnected systems, unclear ownership and jobs being done simply because that is how they have always been done.</p>
+          <p>DW exists because those little things add up. The aim is not to make people less valuable. It is to free them from low-value admin, protect the business they represent, and give operators clearer data, safer processes and better control.</p>
+          <div class="quote-line">If a task only exists because nobody has reviewed it, it deserves to be challenged.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="capabilities" id="capabilities">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Look at the operation through three lenses.</h2>
+          <p>Operators do not need buzzwords. They need clearer systems, safer workforce control and data that shows where the real waste sits.</p>
+        </div>
+        <div class="visual-band" aria-label="Transport consultancy focus areas">
+          <div class="visual-tile"><div><b>Tech that joins up</b><span>Tacho, dashcams, telematics, maintenance and reporting working from the same evidence.</span></div></div>
+          <div class="visual-tile"><div><b>Ops that protect people</b><span>Safer routines, clearer escalation and workforce management that protects the business.</span></div></div>
+          <div class="visual-tile"><div><b>Data that proves it</b><span>Figures, reports and records that show what happened, not what someone retyped later.</span></div></div>
+        </div>
+        <div class="tab-shell">
+          <input type="radio" name="capability" id="tab-tech" checked>
+          <input type="radio" name="capability" id="tab-ops">
+          <input type="radio" name="capability" id="tab-data">
+          <div class="tab-labels" aria-label="Capability sections">
+            <label for="tab-tech">Tech integrations</label>
+            <label for="tab-ops">Ops and workforce</label>
+            <label for="tab-data">Data and savings</label>
+          </div>
+          <div class="tab-panels">
+            <article class="tab-panel tech-panel" id="tech">
+              <div class="tab-visual">
+                <div class="visual-note"><b>Dashcams, tacho, telematics, maintenance and admin systems.</b><span>Make them speak to each other before asking people to bridge the gap manually.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Systems should reduce admin, not create another place to check.</h3>
+                <p>DW reviews where data is already being created and how it could be reused across the business instead of being retyped, chased or rebuilt in spreadsheets.</p>
+                <ul class="feature-list">
+                  <li><b>Dashcams and telematics</b>Use footage, behaviour data and incident evidence to support drivers and protect the operator.</li>
+                  <li><b>Tacho and driver analysis</b>Turn exceptions, infringements and patterns into practical management actions.</li>
+                  <li><b>System integration</b>Connect planning, maintenance, invoicing, reporting and customer updates so information moves once.</li>
+                  <li><b>AI and automation</b>Automate repeatable admin carefully, with human checks where the risk needs them.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tab-panel ops-panel-tab" id="ops">
+              <div class="tab-visual">
+                <div class="visual-note"><b>Safe workforce, protected business.</b><span>Good processes should protect drivers, managers, customers and the licence.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Operations are about people as much as vehicles.</h3>
+                <p>Processes should help managers run the workforce safely, fairly and consistently while protecting the business those people represent every day.</p>
+                <ul class="feature-list">
+                  <li><b>Workforce safety</b>Review the routines that shape driver behaviour, communication and escalation.</li>
+                  <li><b>Manager visibility</b>Make it easier to see risk early: hours, defects, fatigue signals, repeated incidents and weak handovers.</li>
+                  <li><b>Business protection</b>Build evidence trails that support drivers and the company if something is challenged.</li>
+                  <li><b>Practical control</b>Keep procedures simple enough that they are followed when the office is busy.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="tab-panel data-panel" id="data">
+              <div class="tab-visual">
+                <div class="visual-note"><b>The savings are often in the boring bits.</b><span>Repeated minutes, repeated checks and repeated work become real cost.</span></div>
+              </div>
+              <div class="tab-copy">
+                <h3>Small inefficiencies become expensive when they happen every day.</h3>
+                <p>DW looks for the little misses that add up: double entry, unnecessary reports, avoidable calls, duplicated checks and manual workarounds that everyone has stopped questioning.</p>
+                <ul class="feature-list">
+                  <li><b>Admin waste review</b>Map repeated tasks and estimate where time is being absorbed.</li>
+                  <li><b>Data quality checks</b>Find where reports conflict because systems do not share the same truth.</li>
+                  <li><b>Evidence gaps</b>Spot the missing link before it becomes a disputed invoice, audit issue or management blind spot.</li>
+                  <li><b>Actionable reporting</b>Build reports that help someone decide, not just decorate a meeting.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head visual-proof">
+          <h2>Start with what operators recognise.</h2>
+          <p>The work is not abstract transformation. It is the yard, the traffic office, the records, the vehicle evidence and the point where a job becomes an invoice.</p>
+        </div>
+        <div class="image-grid">
+          <div class="image-card tall yard">
+            <div><b>Yard and planning control</b><span>Where late changes, handovers and vehicle evidence either stay visible or disappear.</span></div>
+          </div>
+          <div class="image-card warehouse">
+            <div><b>Operational flow</b><span>Orders, loads, updates and proof need one joined-up route through the business.</span></div>
+          </div>
+          <div class="image-card records">
+            <div><b>Records that stand up</b><span>Compliance confidence starts with evidence that can be found quickly and trusted.</span></div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>Three practical ways to get control back.</h2>
+          <p>No theatre. No supplier kickbacks. The work starts with how the operation actually runs: orders, planning, drivers, vehicles, evidence, invoices and management reporting.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-visual records" role="img" aria-label="Transport records and admin paperwork"></div>
+            <div class="price">&pound;295 fixed fee</div>
+            <h3>Transport Admin Waste Review</h3>
+            <p>A focused review of where duplicated admin, manual updates and weak handovers are costing time.</p>
+            <ul>
+              <li>Short call and process walkthrough</li>
+              <li>Admin waste map</li>
+              <li>Three practical fixes to start with</li>
+            </ul>
+          </article>
+          <article class="card featured">
+            <div class="card-visual depot" role="img" aria-label="Depot operation and vehicle movement"></div>
+            <div class="price">From &pound;495</div>
+            <h3>Operator Compliance & Admin Health Check</h3>
+            <p>A red, amber and green review of the records and routines that support operator licence confidence.</p>
+            <ul>
+              <li>Drivers, vehicles and core evidence</li>
+              <li>Record gaps and risk areas</li>
+              <li>Plain-English action plan</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-visual warehouse" role="img" aria-label="Warehouse and logistics process"></div>
+            <div class="price">From &pound;750</div>
+            <h3>Process, Systems & AI Readiness Review</h3>
+            <p>A practical roadmap for joining up orders, planning, telematics, driver records and reporting.</p>
+            <ul>
+              <li>Current-state workflow map</li>
+              <li>Data and automation opportunities</li>
+              <li>Supplier and implementation questions</li>
+            </ul>
+          </article>
+        </div>
+        <div class="depot-strip" role="img" aria-label="Logistics depot and warehouse operation">
+          <div>
+            <b>Built around the yard, the office and the evidence trail.</b>
+            <span>The tech angle only matters if it reduces real transport friction: duplicated updates, missing records, late invoice support and reports that do not match what happened.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="white" id="method">
+      <div class="wrap split">
+        <div>
+          <h2>Fix the operating rhythm before adding more software.</h2>
+          <p class="plain">Most admin waste is hiding in ordinary handovers: the job moves from order to plan to driver update to invoice evidence, but the same information gets typed, checked and chased more than once.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div><h3>Map what actually happens</h3><p>Follow one job through order entry, planning, driver records, vehicle evidence, customer updates and invoicing.</p></div>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <div><h3>Expose the repeated work</h3><p>Identify re-keying, weak ownership, spreadsheet workarounds and reports that nobody fully trusts.</p></div>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <div><h3>Build the next useful control</h3><p>Prioritise fixes that make daily operations clearer: better evidence trails, cleaner data and targeted automation.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Where the savings usually show up.</h2>
+          <p>Most operators already have the information somewhere. The issue is how often people have to chase it, rebuild it, retype it or explain why two reports disagree.</p>
+        </div>
+        <div class="proof-grid">
+          <article class="proof-card">
+            <span>Repeated admin</span>
+            <h3>One job, too many updates</h3>
+            <p>Orders get entered, planned, amended, chased, recorded and invoiced across different tools. DW looks for the points where one reliable update could remove three manual ones.</p>
+          </article>
+          <article class="proof-card">
+            <span>Evidence gaps</span>
+            <h3>Hard to prove what happened</h3>
+            <p>Driver records, defects, camera evidence, vehicle activity and customer updates should support each other. Weak links cost time when there is a dispute, incident or audit question.</p>
+          </article>
+          <article class="proof-card">
+            <span>Disconnected systems</span>
+            <h3>People become the integration</h3>
+            <p>When telematics, tacho, maintenance, planning and finance do not speak, the traffic office fills the gap. That is where careful automation and cleaner reporting can pay back quickly.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="calculator-section white" id="calculator">
+      <div class="wrap calculator-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Quick admin waste estimate</div>
+          <h2>Put a rough cost against repeated transport admin.</h2>
+          <p class="plain">This is a simple sense-check, not a finance model. Estimate the total hours your team spends repeating office tasks, then see the rough monthly and annual cost before anyone has even looked at disputes, missed evidence or delayed invoicing.</p>
+        </div>
+        <div class="calculator-card" aria-label="Admin waste calculator">
+          <label for="hours">Repeated admin hours per working day</label>
+          <input id="hours" type="number" min="0" step="0.5" value="2.4">
+          <p class="calculator-note">Use the total across the office, rather than a fleet-size estimate. For example, 2.4 hours means roughly 2 hours 24 minutes of repeated work each day.</p>
+
+          <label for="rate">Loaded hourly admin cost</label>
+          <input id="rate" type="number" min="1" value="18">
+
+          <label for="days">Working days per month</label>
+          <input id="days" type="number" min="1" value="22">
+
+          <div class="calc-results">
+            <div><span>Estimated monthly cost</span><strong id="monthlyCost">&pound;950</strong></div>
+            <div><span>Estimated annual cost</span><strong id="annualCost">&pound;11,405</strong></div>
+          </div>
+          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Admin%20waste%20calculator%20review">Review this with DW</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="wrap about-grid">
+        <div class="checklist">
+          <div class="checklist-photo" role="img" aria-label="Road transport operation">
+            <span>Free operator scorecard</span>
+          </div>
+          <div class="eyebrow"><span class="pulse"></span> Free lead magnet</div>
+          <h2>Transport Admin & Compliance Readiness Checklist</h2>
+          <p class="plain">A simple scorecard covering the records and routines a small operator should be able to find without a panic search.</p>
+          <div class="checks">
+            <span>Operator licence admin</span>
+            <span>Driver records</span>
+            <span>Vehicle evidence</span>
+            <span>Planning handovers</span>
+            <span>ETA updates</span>
+            <span>Invoice support</span>
+            <span>Reporting visibility</span>
+            <span>Improvement actions</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="assets/dw-transport-readiness-checklist.pdf" download>Download the checklist</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20review&body=Hi%20Daniel%2C%0A%0AI%27d%20like%20to%20talk%20through%20the%20checklist.%0A%0ACompany%3A%0AMain%20issue%3A%0A">Talk it through</a>
+          </div>
+        </div>
+        <div class="card">
+          <h2>What it helps you question</h2>
+          <p>The checklist is not a legal sign-off. It is a way to spot where admin, records, evidence and reporting may already be showing you where time, money or control is leaking.</p>
+          <ul class="proof-list">
+            <li>Are drivers, vehicles, defects, incidents and maintenance records easy to find when needed?</li>
+            <li>Are the same updates being typed into more than one place?</li>
+            <li>Do reports match what actually happened in the operation?</li>
+            <li>Could dashcam, tacho, telematics or planning data remove manual chasing?</li>
+            <li>Are people doing work because it adds value, or because nobody has reviewed it?</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="white" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Questions operators normally ask first.</h2>
+          <p>Short answers before anyone books time in the diary.</p>
+        </div>
+        <div class="faq-grid">
+          <details open>
+            <summary>Do you work remotely or on site?</summary>
+            <p>Both. Some admin, systems and reporting reviews can start remotely. Yard, workforce and operational rhythm work is usually stronger with at least some time on site.</p>
+          </details>
+          <details>
+            <summary>Is this a formal compliance sign-off?</summary>
+            <p>No. DW provides operational review, admin checks and practical improvement actions. Formal legal advice or statutory compliance sign-off should sit with the correct appointed professionals.</p>
+          </details>
+          <details>
+            <summary>What systems can you look at?</summary>
+            <p>Planning tools, spreadsheets, telematics, dashcams, tacho analysis, maintenance records, driver records, reporting packs and the handovers between them.</p>
+          </details>
+          <details>
+            <summary>Do you cover outside the UK?</summary>
+            <p>Yes. DW is UK based and can support operations with full EU coverage, especially where UK operators need stronger visibility across cross-border work.</p>
+          </details>
+          <details>
+            <summary>What happens on the first call?</summary>
+            <p>A short discussion about the issue, the systems involved, where time is being lost and whether a fixed-scope review is the right next step.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="wrap cta-box">
+        <div>
+          <h2>Got a spreadsheet, report or process that everyone relies on and nobody trusts?</h2>
+          <p class="plain">Send a quick email with the issue: admin time, evidence gaps, reporting, systems, telematics or AI-ready process improvement. If it is not a good fit, you will get a straight answer.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://calendar.app.google/sxqBJheY5VRdqxrt8">Book a 30-minute review</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Request the checklist</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <span>Contact</span>
+          <a href="mailto:dwtransportconsultancy@gmail.com">dwtransportconsultancy@gmail.com</a>
+          <p>Tell me what is taking too much time in the office. UK based, with full EU coverage.</p>
+          <form class="lead-form" id="enquiry-form">
+            <input name="name" type="text" placeholder="Your name" autocomplete="name" required>
+            <input name="company" type="text" placeholder="Company" autocomplete="organization">
+            <input name="email" type="email" placeholder="Email address" autocomplete="email" required>
+            <select name="issue" required>
+              <option value="" selected disabled>What would you like to review?</option>
+              <option>Repeated admin and efficiency</option>
+              <option>Compliance records and evidence</option>
+              <option>Systems, telematics or AI integration</option>
+              <option>Operations and workforce controls</option>
+              <option>Something else</option>
+            </select>
+            <textarea name="message" placeholder="A brief description of the issue"></textarea>
+            <button class="button primary" type="submit">Send enquiry</button>
+            <p class="form-note">This opens a pre-filled email in your email app.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>DW Transport Consultancy. UK based with full EU coverage. Guidance and checklists are general operational information, not legal advice or a formal compliance sign-off. Always check current requirements with DVSA, the Traffic Commissioner and gov.uk.</p>
+    </div>
+  </footer>
+  <script>
+    const sectionTabs = {
+      "#tech": "tab-tech",
+      "#ops": "tab-ops",
+      "#data": "tab-data"
+    };
+
+    function openSectionTab() {
+      const id = sectionTabs[window.location.hash];
+      if (!id) return;
+      const input = document.getElementById(id);
+      if (input) input.checked = true;
+      document.getElementById("capabilities")?.scrollIntoView({ block: "start" });
+    }
+
+    window.addEventListener("hashchange", openSectionTab);
+    openSectionTab();
+
+    const calcInputs = ["hours", "rate", "days"].map((id) => document.getElementById(id));
+    const monthlyCost = document.getElementById("monthlyCost");
+    const annualCost = document.getElementById("annualCost");
+    const money = new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 });
+
+    function updateAdminWaste() {
+      const [hours, rate, days] = calcInputs.map((input) => Math.max(Number(input?.value || 0), 0));
+      const monthly = hours * rate * days;
+      if (monthlyCost) monthlyCost.textContent = money.format(monthly);
+      if (annualCost) annualCost.textContent = money.format(monthly * 12);
+    }
+
+    calcInputs.forEach((input) => input?.addEventListener("input", updateAdminWaste));
+    updateAdminWaste();
+
+    document.getElementById("enquiry-form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = `DW enquiry - ${form.get("issue") || "operations review"}`;
+      const body = [
+        `Name: ${form.get("name") || ""}`,
+        `Company: ${form.get("company") || ""}`,
+        `Email: ${form.get("email") || ""}`,
+        `Area to review: ${form.get("issue") || ""}`,
+        "",
+        `${form.get("message") || ""}`
+      ].join("\\n");
+      window.location.href = `mailto:dwtransportconsultancy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</body>
+</html>
