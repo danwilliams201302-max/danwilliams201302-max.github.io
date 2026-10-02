@@ -1091,6 +1091,30 @@
       margin-top: 8px;
     }
 
+    .lead-form {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 12px 13px;
+      font: inherit;
+      color: var(--ink);
+      background: rgba(255,255,255,.08);
+    }
+
+    .lead-form textarea { min-height: 86px; resize: vertical; }
+    .lead-form input::placeholder,
+    .lead-form textarea::placeholder { color: #aab6c8; }
+
+    .form-note { margin: 0; color: var(--muted); font-size: .78rem; }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 30px 0;
@@ -1466,7 +1490,10 @@
             <span>Reporting visibility</span>
             <span>Improvement actions</span>
           </div>
-          <a class="button primary" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20request&body=Hi%20Daniel%2C%0A%0APlease%20send%20me%20the%20Transport%20Admin%20%26%20Compliance%20Readiness%20Checklist.%0A%0ACompany%3A%0AVehicles%3A%0AMain%20issue%20to%20review%3A%0A">Email me the checklist</a>
+          <div class="hero-actions">
+            <a class="button primary" href="assets/dw-transport-readiness-checklist.pdf" download>Download the checklist</a>
+            <a class="button" href="mailto:dwtransportconsultancy@gmail.com?subject=Checklist%20review&body=Hi%20Daniel%2C%0A%0AI%27d%20like%20to%20talk%20through%20the%20checklist.%0A%0ACompany%3A%0AMain%20issue%3A%0A">Talk it through</a>
+          </div>
         </div>
         <div class="card">
           <h2>What it helps you question</h2>
@@ -1526,7 +1553,23 @@
         <div class="contact-card">
           <span>Contact</span>
           <a href="mailto:dwtransportconsultancy@gmail.com">dwtransportconsultancy@gmail.com</a>
-          <p>Ask for the checklist, or describe what is taking too much time in the office. UK based, with full EU coverage.</p>
+          <p>Tell me what is taking too much time in the office. UK based, with full EU coverage.</p>
+          <form class="lead-form" id="enquiry-form">
+            <input name="name" type="text" placeholder="Your name" autocomplete="name" required>
+            <input name="company" type="text" placeholder="Company" autocomplete="organization">
+            <input name="email" type="email" placeholder="Email address" autocomplete="email" required>
+            <select name="issue" required>
+              <option value="" selected disabled>What would you like to review?</option>
+              <option>Repeated admin and efficiency</option>
+              <option>Compliance records and evidence</option>
+              <option>Systems, telematics or AI integration</option>
+              <option>Operations and workforce controls</option>
+              <option>Something else</option>
+            </select>
+            <textarea name="message" placeholder="A brief description of the issue"></textarea>
+            <button class="button primary" type="submit">Send enquiry</button>
+            <p class="form-note">This opens a pre-filled email in your email app.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -1569,6 +1612,21 @@
 
     calcInputs.forEach((input) => input?.addEventListener("input", updateAdminWaste));
     updateAdminWaste();
+
+    document.getElementById("enquiry-form")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = `DW enquiry - ${form.get("issue") || "operations review"}`;
+      const body = [
+        `Name: ${form.get("name") || ""}`,
+        `Company: ${form.get("company") || ""}`,
+        `Email: ${form.get("email") || ""}`,
+        `Area to review: ${form.get("issue") || ""}`,
+        "",
+        `${form.get("message") || ""}`
+      ].join("\\n");
+      window.location.href = `mailto:dwtransportconsultancy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
   </script>
 </body>
 </html>
